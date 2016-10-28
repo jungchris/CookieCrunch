@@ -14,8 +14,13 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
+    // MARK: Properties
+    
     var scene: GameScene!
     var level: Level!
+    // var password: String
+    
+    // MARK: View Controller Functions
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -42,7 +47,11 @@ class GameViewController: UIViewController {
         scene.scaleMode = .aspectFill
         
         // create the level instance
-        level = Level()
+        // level = Level()
+        level = Level(filename: "level_1")
+        
+        // password = "1l1lll1ll1ll1l"
+        
         scene.level = level
         
         // Present the scene.
