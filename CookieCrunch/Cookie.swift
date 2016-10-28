@@ -37,7 +37,7 @@ enum CookieType: Int, CustomStringConvertible {
     
 }
 
-class Cookie: CustomStringConvertible {
+class Cookie: CustomStringConvertible, Hashable {
     
     var column: Int
     var row: Int
@@ -53,4 +53,20 @@ class Cookie: CustomStringConvertible {
     var description: String {
         return "type:\(cookieType) square:(\(column),\(row))"
     }
+    
+    var hashValue: Int {
+        return row*10 + column
+    }
+    
 }
+
+// How hashable confirms to equatable is better explained here:
+// http://samuelmullen.com/2014/10/implementing_swifts_hashable_protocol/
+func == (lhs: Cookie, rhs: Cookie) -> Bool {
+    return lhs.column == rhs.column && lhs.row == rhs.row
+}
+
+
+
+
+

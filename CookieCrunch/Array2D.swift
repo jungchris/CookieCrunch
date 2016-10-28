@@ -21,6 +21,8 @@ struct Array2D<T> {
                                                                             //(count: rows*columns, repeatedValue: nil)
     }
     
+    // this is the setter and getter. Allows access to the array via array[column, row]
+    
     subscript(column: Int, row: Int) -> T? {
         get {
             return array[row*columns + column]
